@@ -11,6 +11,9 @@ import ErrorPage from './components/page/ErrorPage.jsx';
 import SignUp from './components/page/sign/SignUp.jsx';
 import SignIn from './components/page/sign/SignIn.jsx';
 import AuthProvider from './components/provider/AuthProvider.jsx';
+import AddJob from './components/privateRouter/AddJob.jsx';
+import MyJobs from './components/privateRouter/MyJobs.jsx';
+import AppliedJobs from './components/privateRouter/AppliedJobs.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,18 @@ const router = createBrowserRouter([
       {
         path: '/signIn',
         element: <SignIn></SignIn>
+      },
+      {
+        path: '/addJob',
+        element: <AddJob></AddJob>
+      },
+      {
+        path: '/myJob',
+        element: <MyJobs></MyJobs>
+      },
+      {
+        path: '/appliedJob',
+        element: <AppliedJobs></AppliedJobs>
       }
 ]
 }

@@ -14,10 +14,14 @@ const Header = () => {
 
     const navLinks = <>
         <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/'}>Home</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/addJob'}>Add Job</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/appliedJob'}>Applied Jobs</NavLink></li>
         <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/allJob'}>All Jobs</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/myJob'}>My Jobs</NavLink></li>
+        {
+            user && <>
+            <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/appliedJob'}>Applied Jobs</NavLink></li>
+            <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/myJob'}>My Jobs</NavLink></li>
+            <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/addJob'}>Add A Job</NavLink></li>
+            </>
+        }
         <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/blog'}>Blog</NavLink></li>
     </>
     return (
