@@ -1,19 +1,24 @@
-import React from 'react';
-import { NavLink } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Link, NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import job from '../../assets/job2.PNG';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Header = () => {
-    // const handleSignOut = () => {
-        
-    // }
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOut()
+        .then(res => console.log(res.user))
+        .catch(err => console.error(err.message))
+    }
 
     const navLinks = <>
         <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/'}>Home</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/addProduct'}>Add Product</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/myCart'}>My Cart</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/about'}>About us</NavLink></li>
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/signUp'}>Sign in</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/addJob'}>Add Job</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/appliedJob'}>Applied Jobs</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/allJob'}>All Jobs</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/myJob'}>My Jobs</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/blog'}>Blog</NavLink></li>
     </>
     return (
         <div>
@@ -27,26 +32,26 @@ const Header = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <img src={job} className="h-24 w-32 bg-white" alt="" />
-                    <a href="/" className="h-full normal-case font-semibold text-6xl font-joseph"><span className='text-[#06D6C6]'>Job</span><span className='text-warning'>Hustle</span></a>
+                    <img src={job} className="h-20 w-24 bg-white" alt="" />
+                    <a href="/" className="h-full normal-case font-semibold text-5xl font-joseph"><span className='text-[#06D6C6]'>Job</span><span className='text-warning'>Hustle</span></a>
                 </div>
                 <div className="navbar-center flex">
                     <ul className="menu menu-horizontal px-1 gap-1 ml-5 hidden lg:flex">
                         {navLinks}
                     </ul>
                 </div>
-                {/* <div className="navbar-end pt-4">
+                <div className="navbar-end pt-4">
                     {
                         user ?
                             <div className="flex gap-3 items-center">
-                                <img src={user.photoURL} className="h-16 w-16 rounded-full" alt="" />
-                                <button onClick={handleSignOut} className="btn btn-primary text-lg font-semibold">Sign out</button>
+                                <img src={user.photoURL} className="h-16 w-16 rounded-full" alt={user.displayName} />
+                                <button onClick={handleLogOut} className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-lg font-bold">Sign out</button>
                             </div>
                             :
-                            <Link to={"/signUp"}><button className="btn btn-primary text-lg font-semibold">Sign up</button></Link>
+                            <Link to={"/signIn"}><button className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-lg font-bold">Sign in</button></Link>
 
                     }
-                </div> */}
+                </div>
             </div>
         </div>
     );
