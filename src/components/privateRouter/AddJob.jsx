@@ -18,7 +18,19 @@ const AddJob = () => {
         const photo = form.photo.value;
         const description = form.description.value;
 
-        console.log(username, jobTitle, jobCat, salary, jobDate, deadline, applicant, photo, description);
+        const newJob = { username, jobTitle, jobCat, salary, jobDate, deadline, applicant, photo, description };
+        
+        fetch('http://localhost:4321/', {
+            method: "POST",
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newJob)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
     return (
         <div>
