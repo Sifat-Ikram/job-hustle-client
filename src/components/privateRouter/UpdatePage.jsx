@@ -3,7 +3,7 @@ import Footer from '../common/Footer';
 import Header from '../common/Header';
 
 
-const AddJob = () => {
+const UpdatePage = () => {
 
     const handleAddProduct = e => {
         e.preventDefault()
@@ -27,7 +27,7 @@ const AddJob = () => {
                 <div>
                     <div className="w-4/5 mx-auto bg-[#06D6C6] rounded-lg border-2 border-b-8 border-solid border-b-[#06D6C6]">
                         <div className="text-center py-10">
-                            <h1 className="text-5xl font-bold">Add Job here</h1>
+                            <h1 className="text-5xl font-bold">Update Job here</h1>
                         </div>
                         <div>
                             <form onSubmit={handleAddProduct}  className="card-body space-y-5 bg-base-100">
@@ -96,7 +96,7 @@ const AddJob = () => {
                                     </div>
                                 </div>
                                 <div className="form-control w-full">
-                                    <button type='submit' className="btn bg-[#06D6C6] hover:bg-[#06D6C6] font-bold text-lg">Add Product</button>
+                                    <button type='submit' className="btn bg-[#06D6C6] hover:bg-[#06D6C6] font-bold text-lg">Update</button>
                                 </div>
                             </form>
                         </div>
@@ -108,4 +108,4 @@ const AddJob = () => {
     );
 };
 
-export default AddJob;
+export default UpdatePage;

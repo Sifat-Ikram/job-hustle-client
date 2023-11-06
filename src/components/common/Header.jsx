@@ -22,7 +22,7 @@ const Header = () => {
             <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/addJob'}>Add A Job</NavLink></li>
             </>
         }
-        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/blog'}>Blog</NavLink></li>
+        <li><NavLink style={({ isActive }) => ({ background: isActive ? "#06D6C6" : "" })} className="hover:bg-[#06D6C6] hover:text-white font-bold text-[#06D6C6] rounded-md" to={'/update'}>Blog</NavLink></li>
     </>
     return (
         <div>

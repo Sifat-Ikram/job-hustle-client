@@ -14,6 +14,7 @@ import AuthProvider from './components/provider/AuthProvider.jsx';
 import AddJob from './components/privateRouter/AddJob.jsx';
 import MyJobs from './components/privateRouter/MyJobs.jsx';
 import AppliedJobs from './components/privateRouter/AppliedJobs.jsx';
+import UpdatePage from './components/privateRouter/UpdatePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/appliedJob',
         element: <AppliedJobs></AppliedJobs>
+      },
+      {
+        path:'/update',
+        element: <UpdatePage></UpdatePage>
       }
 ]
 }
