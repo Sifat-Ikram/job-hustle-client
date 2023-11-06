@@ -1,22 +1,22 @@
 [
     {
-        "cat-title": "All Jobs",
+        "title": "All Jobs",
         "img": "https://i.ibb.co/JQ8f81X/job.jpg"
     },
     {
-        "cat-title": "On Site",
+        "title": "On Site",
         "img": "https://i.ibb.co/C5JnQvk/site-engineering.jpg"
     },
     {
-        "cat-title":"Remote",
+        "title":"Remote",
         "img":"https://i.ibb.co/9w0TCdC/images-q-tbn-ANd9-Gc-TOBEEJiu-ROFqb-ET82mwabutq7-H-Vv-Ka-Vp0-XA-usqp-CAU.jpg"
     },
     {
-        "cat-title":"Hybrid",
+        "title":"Hybrid",
         "img":"https://i.ibb.co/Xt8SbTV/21-Companies-That-Hire-for-Hybrid-Jobs-Partially-Remote-2.jpg"
     },
     {
-        "cat-title":"Part Time",
+        "title":"Part Time",
         "img":"https://i.ibb.co/4mds16N/barista-smiling.jpg"
     }
 ]

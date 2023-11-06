@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
+import Swal from 'sweetalert2';
 
 
 const AddJob = () => {
@@ -20,7 +21,7 @@ const AddJob = () => {
 
         const newJob = { username, jobTitle, jobCat, salary, jobDate, deadline, applicant, photo, description };
         
-        fetch('http://localhost:4321/', {
+        fetch('http://localhost:4321/allJobs', {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'
@@ -30,6 +31,14 @@ const AddJob = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Job added successfully!!!',
+                    icon: 'success',
+                    confirmButtonText: 'Okay'
+                  })
+            }
         })
     }
     return (
