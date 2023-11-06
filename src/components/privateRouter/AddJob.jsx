@@ -20,26 +20,26 @@ const AddJob = () => {
         const description = form.description.value;
 
         const newJob = { username, jobTitle, jobCat, salary, jobDate, deadline, applicant, photo, description };
-        
+
         fetch('http://localhost:4321/allJobs', {
             method: "POST",
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json'
             },
             body: JSON.stringify(newJob)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Job added successfully!!!',
-                    icon: 'success',
-                    confirmButtonText: 'Okay'
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Job added successfully!!!',
+                        icon: 'success',
+                        confirmButtonText: 'Okay'
+                    })
+                }
+            })
     }
     return (
         <div>
@@ -51,19 +51,19 @@ const AddJob = () => {
                             <h1 className="text-5xl font-bold">Add Job here</h1>
                         </div>
                         <div>
-                            <form onSubmit={handleAddProduct}  className="card-body space-y-5 bg-base-100">
+                            <form onSubmit={handleAddProduct} className="card-body space-y-5 bg-base-100">
                                 <div className='lg:flex justify-between gap-4 '>
                                     <div className='form-control lg:w-1/2'>
                                         <label className='label'>
                                             <span className='label-text'>User Name</span>
                                         </label>
-                                        <input type="text" name='username' placeholder='Type your Name' className='input input-bordered'  />
+                                        <input type="text" name='username' placeholder='Type your Name' className='input input-bordered' />
                                     </div>
                                     <div className='form-control lg:w-1/2'>
                                         <label className='label'>
                                             <span className='label-text'>Job Title</span>
                                         </label>
-                                        <input type="text" name='jobTitle' placeholder='Type Job Title' className='input input-bordered'  />
+                                        <input type="text" name='jobTitle' placeholder='Type Job Title' className='input input-bordered' />
                                     </div>
                                 </div>
                                 <div className='lg:flex justify-between gap-4'>
@@ -71,13 +71,13 @@ const AddJob = () => {
                                         <label className='label'>
                                             <span className='label-text'>Job Category</span>
                                         </label>
-                                        <input type="text" name='jobCat' placeholder='Type job category' className='input input-bordered'  />
+                                        <input type="text" name='jobCat' placeholder='Type job category' className='input input-bordered' />
                                     </div>
                                     <div className='form-control lg:w-1/2'>
                                         <label className='label'>
                                             <span className='label-text'>Salary range</span>
                                         </label>
-                                        <input type="text" name='salary' placeholder='Type salary range' className='input input-bordered'  />
+                                        <input type="text" name='salary' placeholder='Type salary range' className='input input-bordered' />
                                     </div>
                                 </div>
                                 <div className='lg:flex justify-between gap-4'>
@@ -99,7 +99,7 @@ const AddJob = () => {
                                         <label className='label'>
                                             <span className='label-text'>Job Applicants Number</span>
                                         </label>
-                                        <input type="text" name='applicant' placeholder='Type applicant number'  className='input input-bordered' />
+                                        <input type="text" name='applicant' placeholder='Type applicant number' className='input input-bordered' />
                                     </div>
                                     <div className='form-control lg:w-1/2'>
                                         <label className='label'>
@@ -113,7 +113,7 @@ const AddJob = () => {
                                         <label className='label'>
                                             <span className='label-text'>Description</span>
                                         </label>
-                                        <textarea name='description'  className="textarea textarea-ghost" placeholder="Description"></textarea>
+                                        <textarea name='description' className="textarea textarea-ghost" placeholder="Description"></textarea>
                                     </div>
                                 </div>
                                 <div className="form-control w-full">

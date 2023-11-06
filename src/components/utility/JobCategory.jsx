@@ -80,7 +80,7 @@ const JobCategory = (jobs) => {
                                         <h2 className='text-base font-semibold'>Posted on: {job.posting_date}</h2>
                                         <h2 className='text-base font-semibold'>Deadline: {job.deadline}</h2>
                                         <div className='flex justify-end'>
-                                            <Link><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
+                                            <Link to={`/details/${job._id}`}><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>)
@@ -102,7 +102,7 @@ const JobCategory = (jobs) => {
                                         <h2 className='text-base font-semibold'>Posted on: {job.posting_date}</h2>
                                         <h2 className='text-base font-semibold'>Deadline: {job.deadline}</h2>
                                         <div className='flex justify-end'>
-                                            <Link><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
+                                            <Link to={`/details/${job._id}`}><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +125,7 @@ const JobCategory = (jobs) => {
                                         <h2 className='text-base font-semibold'>Posted on: {job.posting_date}</h2>
                                         <h2 className='text-base font-semibold'>Deadline: {job.deadline}</h2>
                                         <div className='flex justify-end'>
-                                            <Link><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
+                                            <Link to={`/details/${job._id}`}><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +148,7 @@ const JobCategory = (jobs) => {
                                         <h2 className='text-base font-semibold'>Posted on: {job.posting_date}</h2>
                                         <h2 className='text-base font-semibold'>Deadline: {job.deadline}</h2>
                                         <div className='flex justify-end'>
-                                            <Link><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
+                                            <Link to={`/details/${job._id}`}><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +171,7 @@ const JobCategory = (jobs) => {
                                         <h2 className='text-base font-semibold'>Posted on: {job.posting_date}</h2>
                                         <h2 className='text-base font-semibold'>Deadline: {job.deadline}</h2>
                                         <div className='flex justify-end'>
-                                            <Link><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
+                                            <Link to={`/details/${job._id}`}><button className='btn btn-outline border-accent rounded-md hover:bg-[#06C6D6]'>View Details</button></Link>
                                         </div>
                                     </div>
                                 </div>
