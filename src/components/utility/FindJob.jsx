@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const FindJob = () => {
     return (
         <div>
-            <div className="hero bg-base-200">
-                <div className="hero-content flex-col lg:flex-row gap-5">
+            <div className="hero bg-base-200 p-0">
+                <div className="flex items-center flex-col lg:flex-row gap-5">
                     <img src={find} className="w-1/2 rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-5xl font-bold">Create free account and start apply your dream job today</h1>
