@@ -4,7 +4,7 @@ import { NavLink, Link, useParams } from 'react-router-dom';
 
 const JobCategory = (jobs) => {
     const [toggle, setToggle] = useState('all');
-    const [categories, setCategories] = useState('');
+
     const handleToggle = cat => {
         setToggle(cat);
     }
@@ -36,7 +36,6 @@ const JobCategory = (jobs) => {
             return jobs.jobs.filter(item => item.work_type === 'Part-Time');
         }
     }
-
     const partTimeJobs = getPartTimeJob();
 
     return (

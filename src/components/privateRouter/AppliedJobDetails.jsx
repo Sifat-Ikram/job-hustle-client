@@ -1,10 +1,9 @@
 import React from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
-import Swal from 'sweetalert2';
 
-const JobDetails = () => {
+const AppliedJobDetails = () => {
 
     const jobs = useLoaderData();
     console.log(jobs);
@@ -13,40 +12,6 @@ const JobDetails = () => {
     const job = jobs.find(job => job._id === id)
     const { _id, title, username, photo, category, work_type, salary_range, posting_date, deadline, applicant_number, description } = job;
 
-    const getSavedJob = () => {
-        const savedJob = localStorage.getItem('job-id');
-        if (savedJob) {
-            return JSON.parse(savedJob);
-        }
-        return [];
-    }
-
-    const handleApply = () => {
-        const storedJob = id => {
-            const savedJob = getSavedJob();
-            const ifExist = savedJob.find(JobId => JobId === id);
-            if (!ifExist) {
-                savedJob.push(id);
-                localStorage.setItem('job-id', JSON.stringify(savedJob));
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Job added successfully!!!',
-                    icon: 'success',
-                    confirmButtonText: 'Okay'
-                })
-            }
-            else {
-                Swal.fire({
-                    title: '',
-                    text: 'This job is already here.',
-                    icon: 'error',
-                    confirmButtonText: 'Okay'
-                })
-            }
-        }
-
-        storedJob(_id);
-    }
 
     return (
         <div className='space-y-10'>
@@ -65,7 +30,7 @@ const JobDetails = () => {
                     <p className="text-base font-normal">Deadline: {deadline}</p>
                 </div>
                 <div className='flex justify-center'>
-                    <button onClick={handleApply} className="btn btn-outline border-accent hover:bg-[#06D6C6] font-bold text-base">Apply for this job</button>
+                    <Link to={'/appliedJob'}><button className="btn bg-[#06D6C6] hover:bg-[#06D6C6] font-bold text-base text-white">Go Back</button></Link>
                 </div>
             </div>
             <Footer></Footer>
@@ -73,4 +38,4 @@ const JobDetails = () => {
     );
 };
 
-export default JobDetails;
+export default AppliedJobDetails;
