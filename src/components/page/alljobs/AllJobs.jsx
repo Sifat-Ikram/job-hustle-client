@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import Header from '../../common/Header';
 import Footer from '../../common/Footer';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AllJobs = () => {
     const [ value, setValue ] = useState([]);
@@ -26,6 +27,9 @@ const AllJobs = () => {
 
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | All Jobs</title>
+            </Helmet>
             <Header></Header>
             <div>
                 <div className='flex justify-center items-center'>

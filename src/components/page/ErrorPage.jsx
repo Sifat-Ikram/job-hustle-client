@@ -1,6 +1,7 @@
 import React from 'react';
 import error from '../../assets/png-transparent-error-404-404-error.png';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const ErrorPage = () => {
     return (

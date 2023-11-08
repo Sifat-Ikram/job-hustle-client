@@ -4,6 +4,7 @@ import Header from '../../common/Header';
 import Footer from '../../common/Footer';
 import { AuthContext } from '../../provider/AuthProvider'; 
 import { FcGoogle } from 'react-icons/fc';
+import { Helmet } from 'react-helmet-async';
 
 const SignIn = () => {
     const { signIn, googleSignUp } = useContext(AuthContext);
@@ -41,6 +42,9 @@ const SignIn = () => {
     }
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | Sign in</title>
+            </Helmet>
             <Header></Header>
             <div>
                 <div className="w-1/2 mx-auto bg-[#06D6C6] rounded-lg border-2 border-b-8 border-solid border-b-[#06D6C6]">

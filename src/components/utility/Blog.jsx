@@ -1,14 +1,18 @@
 import React from 'react';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | Blog</title>
+            </Helmet>
             <Header></Header>
             <div className='space-y-10'>
                 <div className='text-left space-y-5'>
-                    <h1>Question: What is an access token and refresh token</h1>
+                    <h1>Question: What is an access token and refresh token?</h1>
                     <p>Answer: An access token is a short-lived, temporary, and typically time-limited token used for authentication and authorization. A refresh token is a long-lived, persistent token used to obtain new access tokens without requiring the user to reauthenticate. Access tokens are short-lived tokens used for API requests and can be stored in memory on the client-side. Refresh tokens are long-lived tokens used to obtain new access tokens and should be stored securely, typically in HTTP-only cookies on the client-side for added security.</p>
                 </div>
                 <div className='text-left space-y-5'>

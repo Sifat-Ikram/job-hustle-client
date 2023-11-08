@@ -2,6 +2,7 @@ import React from 'react';
 import Footer from '../common/Footer';
 import Header from '../common/Header';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 const AddJob = () => {
@@ -19,7 +20,7 @@ const AddJob = () => {
         const photo = form.photo.value;
         const description = form.description.value;
 
-        const newJob = { username, jobTitle, work_type, salary_range, posting_date, deadline, applicant_number, photo, description };
+        const newJob = { username, title, work_type, salary_range, posting_date, deadline, applicant_number, photo, description };
 
         fetch('http://localhost:4321/allJobs', {
             method: "POST",
@@ -43,6 +44,9 @@ const AddJob = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Job hustle | Add Job</title>
+            </Helmet>
             <div className='space-y-10'>
                 <Header></Header>
                 <div>

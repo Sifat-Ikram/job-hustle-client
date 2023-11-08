@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet-async';
 
 const SignUp = () => {
     const { createUser, user } = useContext(AuthContext);
@@ -55,6 +56,9 @@ const SignUp = () => {
     }
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | Sign up</title>
+            </Helmet>
             <Header></Header>
             <div>
                 <div className="w-1/2 mx-auto py-5 bg-[#06D6C6] rounded-lg border-2 border-b-8 border-solid border-b-[#06D6C6]">

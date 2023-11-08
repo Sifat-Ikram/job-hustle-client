@@ -3,6 +3,7 @@ import Footer from '../common/Footer';
 import Header from '../common/Header';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 
 const UpdatePage = () => {
@@ -48,6 +49,9 @@ const UpdatePage = () => {
     return (
         <div>
             <div className='space-y-10'>
+                <Helmet>
+                    <title>Job hustle | Update Jobs</title>
+                </Helmet>
                 <Header></Header>
                 <div>
                     <div className="w-4/5 mx-auto bg-[#06D6C6] rounded-lg border-2 border-b-8 border-solid border-b-[#06D6C6]">

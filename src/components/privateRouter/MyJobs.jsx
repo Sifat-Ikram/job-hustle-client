@@ -4,6 +4,7 @@ import Header from '../common/Header';
 import Footer from '../common/Footer';
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const MyJobs = () => {
     const getJobs = useLoaderData();
@@ -43,6 +44,9 @@ const MyJobs = () => {
 
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | My Jobs</title>
+            </Helmet>
             <Header></Header>
             <div> 
                 <h1 className='text-5xl font-semibold text-left mb-10'>My Jobs</h1>

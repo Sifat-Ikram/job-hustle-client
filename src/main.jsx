@@ -20,21 +20,22 @@ import JobDetails from './components/privateRouter/JobDetails.jsx';
 import PrivateRouter from './components/privateRouter/PrivateRouter.jsx';
 import AppliedJobDetails from './components/privateRouter/AppliedJobDetails.jsx';
 import Blog from './components/utility/Blog.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<App></App>,
-    errorElement:<ErrorPage></ErrorPage>,
+    path: '/',
+    element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path:'/',
-        element:<Home></Home>,
+        path: '/',
+        element: <Home></Home>,
         loader: () => fetch('http://localhost:4321/allJobs')
       },
       {
-        path:'/signUp',
-        element:<SignUp></SignUp>
+        path: '/signUp',
+        element: <SignUp></SignUp>
       },
       {
         path: '/signIn',
@@ -42,21 +43,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/addJob',
-        element: <AddJob></AddJob>
+        element: <PrivateRouter><AddJob></AddJob></PrivateRouter>
       },
       {
         path: '/myJob',
-        element: <MyJobs></MyJobs>,
+        element: <PrivateRouter><MyJobs></MyJobs></PrivateRouter>,
         loader: () => fetch('http://localhost:4321/allJobs')
       },
       {
         path: '/appliedJob',
-        element: <AppliedJobs></AppliedJobs>
+        element: <PrivateRouter><AppliedJobs></AppliedJobs></PrivateRouter>,
+        loader: () => fetch('http://localhost:4321/allJobs')
       },
       {
-        path:'/update/:id',
+        path: '/update/:id',
         element: <UpdatePage></UpdatePage>,
-        loader: ({params}) => fetch(`http://localhost:4321/allJobs/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:4321/allJobs/${params.id}`)
       },
       {
         path: '/allJob',
@@ -77,14 +79,16 @@ const router = createBrowserRouter([
         path: '/blog',
         element: <Blog></Blog>
       }
-]
-}
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>
 );

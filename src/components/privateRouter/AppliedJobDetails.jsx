@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const AppliedJobDetails = () => {
 
@@ -15,6 +16,9 @@ const AppliedJobDetails = () => {
 
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | Applied Job Details</title>
+            </Helmet>
             <Header></Header>
             <div className="w-10/12 mx-auto mt-10 text-left space-y-8">
                 <img src={photo} className="h-96 w-full" alt="" />

@@ -2,18 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const AppliedJobs = () => {
-    const [jobs, setJobs] = useState([]);
+    // const [jobs, setJobs] = useState([]);
     const [appliedJobs, setAppliedJobs] = useState([]);
+    const jobs = useLoaderData();
 
-    const url = 'http://localhost:4321/allJobs';
-
-    useEffect(() => {
-        fetch(url, { credentials: 'include' })
-            .then(res => res.json())
-            .then(data => setJobs(data))
-    }, [url])
     const getSavedJob = () => {
         const savedJob = localStorage.getItem('job-id');
         if (savedJob) {
@@ -39,15 +34,10 @@ const AppliedJobs = () => {
     }, [])
     return (
         <div className="space-y-10">
+            <Helmet>
+                <title>Job hustle | Applied Jobs</title>
+            </Helmet>
             <Header></Header>
-            <div>
-                <select className="select select-accent w-full max-w-xs">
-                    <option disabled selected>Dark mode or light mode?</option>
-                    <option>Auto</option>
-                    <option>Dark mode</option>
-                    <option>Light mode</option>
-                </select>
-            </div>
             <div>
                 <h1 className="text-5xl font-semibold text-left mb-10">Applied Jobs</h1>
                 <div className="grid lg:grid-cols-2 grid-cols-1 mt-10 gap-10">

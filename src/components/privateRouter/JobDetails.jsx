@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const JobDetails = () => {
-
+    const { user } = useContext(AuthContext);
     const jobs = useLoaderData();
     console.log(jobs);
     const { id } = useParams();
@@ -22,8 +24,9 @@ const JobDetails = () => {
     }
 
     const handleApply = () => {
-        
+
         const storedJob = id => {
+
             const savedJob = getSavedJob();
             const ifExist = savedJob.find(JobId => JobId === id);
             if (!ifExist) {
@@ -38,7 +41,7 @@ const JobDetails = () => {
             }
             else {
                 Swal.fire({
-                    title: '',
+                    title: 'Oops!!!',
                     text: 'This job is already here.',
                     icon: 'error',
                     confirmButtonText: 'Okay'
@@ -48,11 +51,14 @@ const JobDetails = () => {
 
         storedJob(_id);
         // const time = 
-        
+
     }
 
     return (
         <div className='space-y-10'>
+            <Helmet>
+                <title>Job hustle | Job Details</title>
+            </Helmet>
             <Header></Header>
             <div className="w-10/12 mx-auto mt-10 text-left space-y-8">
                 <img src={photo} className="h-96 w-full" alt="" />
