@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import axios from 'axios';
 
 
 export const googleProvider = new GoogleAuthProvider();
@@ -15,28 +16,42 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-    const googleSignUp = () =>{
+    const googleSignUp = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     }
 
-    const signIn = (email, password) =>{
+    const signIn = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const logOut = () =>{
+    const logOut = () => {
         setLoading(true);
         return signOut(auth);
     }
 
-    useEffect(() =>{
-        const unSubscribe = onAuthStateChanged(auth, observer =>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, observer => {
+            const userEmail = observer?.email || user?.email;
+            const loggedUser = { email: userEmail }
             console.log(observer);
             setUser(observer);
             setLoading(false);
+            if(observer){
+                axios.post('http://localhost:4321/jwt',loggedUser, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data);
+                })
+            }
+            else{
+                axios.post('http://localhost:4321/logOut', loggedUser, {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data);
+                })
+            }
         });
-        return ()=> {
+        return () => {
             unSubscribe();
         }
     }, []);
@@ -48,10 +63,10 @@ const AuthProvider = ({ children }) => {
         googleSignUp,
         signIn,
         logOut,
-        }
+    }
     return (
         <AuthContext.Provider value={authInfo}>
-            { children }
+            {children}
         </AuthContext.Provider>
     );
 };

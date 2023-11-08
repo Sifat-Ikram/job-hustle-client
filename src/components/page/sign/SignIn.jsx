@@ -9,8 +9,8 @@ const SignIn = () => {
     const { signIn, googleSignUp } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const { error, setError } = useState('');
-    const { success, setSuccess } = useState('');
+    const [ error, setError ] = useState('');
+    const [ success, setSuccess ] = useState('');
 
 
     const handleGoogle = () =>{

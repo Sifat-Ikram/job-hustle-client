@@ -4,11 +4,16 @@ import Header from '../common/Header';
 import Footer from '../common/Footer';
 
 const AppliedJobs = () => {
-
-    const jobs = useLoaderData();
-
+    const [jobs, setJobs] = useState([]);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
+    const url = 'http://localhost:4321/allJobs';
+
+    useEffect(() => {
+        fetch(url, { credentials: 'include' })
+            .then(res => res.json())
+            .then(data => setJobs(data))
+    }, [url])
     const getSavedJob = () => {
         const savedJob = localStorage.getItem('job-id');
         if (savedJob) {
@@ -27,13 +32,22 @@ const AppliedJobs = () => {
                     savedJob.push(job);
                 }
             }
+
             setAppliedJobs(savedJob);
         }
+
     }, [])
-    console.log(appliedJobs);
     return (
         <div className="space-y-10">
             <Header></Header>
+            <div>
+                <select className="select select-accent w-full max-w-xs">
+                    <option disabled selected>Dark mode or light mode?</option>
+                    <option>Auto</option>
+                    <option>Dark mode</option>
+                    <option>Light mode</option>
+                </select>
+            </div>
             <div>
                 <h1 className="text-5xl font-semibold text-left mb-10">Applied Jobs</h1>
                 <div className="grid lg:grid-cols-2 grid-cols-1 mt-10 gap-10">
@@ -42,7 +56,7 @@ const AppliedJobs = () => {
                             <div>
                                 <img src={job.photo} className='w-40 h-40 rounded-md' alt="" />
                             </div>
-                            <div className='text-left space-y-1 flex flex-col'>
+                            <div className='text-left space-y-1 flex-col'>
                                 <h1 className='text-2xl font-bold'>{job.title}</h1>
                                 <h1 className='text-base font-semibold'>Posted by: {job.username}</h1>
                                 <h1 className='text-base font-semibold'>Salary: {job.salary_range}</h1>

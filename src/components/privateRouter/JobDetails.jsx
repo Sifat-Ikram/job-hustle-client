@@ -22,6 +22,7 @@ const JobDetails = () => {
     }
 
     const handleApply = () => {
+        
         const storedJob = id => {
             const savedJob = getSavedJob();
             const ifExist = savedJob.find(JobId => JobId === id);
@@ -46,6 +47,8 @@ const JobDetails = () => {
         }
 
         storedJob(_id);
+        // const time = 
+        
     }
 
     return (
