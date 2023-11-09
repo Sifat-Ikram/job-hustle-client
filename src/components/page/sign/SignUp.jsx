@@ -7,6 +7,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet-async';
+import { updateProfile } from 'firebase/auth';
 
 const SignUp = () => {
     const { createUser, user } = useContext(AuthContext);

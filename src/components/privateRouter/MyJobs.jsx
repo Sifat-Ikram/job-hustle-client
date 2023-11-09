@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../provider/AuthProvider';
+import axios from 'axios';
 
 const MyJobs = () => {
-    const getJobs = useLoaderData();
+    // const getJobs = useLoaderData();
+    const {  user } = useContext(AuthContext);
+    const [ jobs, setJobs ] = useState([]);
 
-    const [ jobs, setJobs ] = useState(getJobs);
+    const url = `http://localhost:4321/allJobs?email=${user.email}`;
+
+    useEffect(() => {
+        axios.get(url, { withCredentials: true })
+        .then(res =>{
+            setJobs(res.data);
+        })
+    }, [url])
 
     const handleDelete = _id => {
         Swal.fire({
@@ -22,7 +33,7 @@ const MyJobs = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4321/allJobs/${_id}`, {
+                fetch(`http://localhost:4321/myJob/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
