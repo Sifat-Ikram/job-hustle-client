@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:4321/allJobs')
+        loader: () => fetch('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs')
       },
       {
         path: '/signUp',
@@ -52,27 +52,27 @@ const router = createBrowserRouter([
       {
         path: '/appliedJob',
         element: <PrivateRouter><AppliedJobs></AppliedJobs></PrivateRouter>,
-        loader: () => fetch('http://localhost:4321/allJobs')
+        loader: () => fetch('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs')
       },
       {
         path: '/update/:id',
         element: <UpdatePage></UpdatePage>,
-        loader: ({ params }) => fetch(`http://localhost:4321/allJobs/${params._id}`)
+        loader: ({ params }) => fetch(`https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs/${params._id}`)
       },
       {
         path: '/allJob',
         element: <AllJobs></AllJobs>,
-        loader: () => fetch('http://localhost:4321/allJobs')
+        loader: () => fetch('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs')
       },
       {
         path: '/details/:id',
         element: <PrivateRouter><JobDetails></JobDetails></PrivateRouter>,
-        loader: () => fetch('http://localhost:4321/allJobs')
+        loader: () => fetch('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs')
       },
       {
         path: '/appliedJobDetails/:id',
         element: <PrivateRouter><AppliedJobDetails></AppliedJobDetails></PrivateRouter>,
-        loader: () => fetch('http://localhost:4321/allJobs')
+        loader: () => fetch('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs')
       },
       {
         path: '/blog',

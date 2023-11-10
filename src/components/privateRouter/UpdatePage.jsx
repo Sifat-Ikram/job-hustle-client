@@ -26,7 +26,7 @@ const UpdatePage = () => {
 
         const updatedJob = { username, title, work_type, salary_range, posting_date, deadline, applicant_number, photo, description };
         
-        fetch(`http://localhost:4321/allJobs/${_id}`, {
+        fetch(`https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

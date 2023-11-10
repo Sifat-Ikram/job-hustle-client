@@ -22,7 +22,7 @@ const AddJob = () => {
 
         const newJob = { username, title, work_type, salary_range, posting_date, deadline, applicant_number, photo, description };
 
-        fetch('http://localhost:4321/allJobs', {
+        fetch('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/allJobs', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

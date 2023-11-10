@@ -39,13 +39,13 @@ const AuthProvider = ({ children }) => {
             setUser(observer);
             setLoading(false);
             if(observer){
-                axios.post('http://localhost:4321/jwt',loggedUser, {withCredentials: true})
+                axios.post('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/jwt',loggedUser, {withCredentials: true})
                 .then(res =>{
-                    console.log({success: true});
+                    console.log(res.data);
                 })
             }
             else{
-                axios.post('http://localhost:4321/logOut', loggedUser, {withCredentials: true})
+                axios.post('https://job-hustle-server-aa2pkq272-md-sifat-ikrams-projects.vercel.app/logOut', loggedUser, {withCredentials: true})
                 .then(res =>{
                     console.log(res.data);
                 })

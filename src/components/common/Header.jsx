@@ -49,10 +49,10 @@ const Header = () => {
                         user ?
                             <div className="flex gap-3 items-center">
                                 <img src={user.photoURL} className="h-16 w-16 rounded-full" alt={user.displayName} />
-                                <button onClick={handleLogOut} className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-lg font-bold">Sign out</button>
+                                <button onClick={handleLogOut} className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-lg text-white font-bold">Sign out</button>
                             </div>
                             :
-                            <Link to={"/signIn"}><button className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-lg font-bold">Sign in</button></Link>
+                            <Link to={"/signIn"}><button className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-lg text-white font-bold">Sign in</button></Link>
 
                     }
                 </div>

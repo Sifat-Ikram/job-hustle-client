@@ -66,7 +66,7 @@ const SignIn = () => {
                                 <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-[#06D6C6] hover:bg-[#06D6C6] font-bold text-lg">Sign in</button>
+                                <button className="btn bg-[#06D6C6] hover:bg-[#06D6C6] text-white font-bold text-lg">Sign in</button>
                             </div>
                             {
                                 error && <p className='text-red-800 text-base'>{error}</p>
