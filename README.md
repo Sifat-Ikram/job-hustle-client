@@ -1,3 +1,7 @@
+website Name: Job Hustle
+
+live link: https://job-hustle.web.app/
+
 features:
 1. There are  Website logo, Website name, Home, All
 Jobs, Applied Jobs, Add A Job, My Jobs, Blogs, and User Profile photo asd button added to the navbar. Here Applied Jobs, Add A Job, My Jobs are private route and if user logged in log in button will be changed to sign out button.
